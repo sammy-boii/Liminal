@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5718402336013634463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5718402336013636705}
+  - component: {fileID: 5718402336013634462}
+  m_Layer: 0
+  m_Name: Old Elevator Builder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5718402336013636705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718402336013634463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.89, y: 1.6613717, z: -1.1936475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5718402336013634462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718402336013634463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfb5f42436f35c45b1d9c7192638aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floors: 10
+  firstNumber: 1
+  distanceBetweenFloors: 3
+  addFloorNumbersInPitWalls: 1
+  interactWithInnerDoorsPanesAsOne: 1
+  player: {fileID: 0}
+  addDustParticlesInElevator: 1
+  addHalls: 1
+  addFloorNumbersInHalls: 1
+  callerType: 1
+  addOuterDoors: 1
+  outterDoorsType: 1
+  interactWithOuterDoorsPanesAsOne: 1
+  addDustParticlesInHalls: 1
+  buttonsLayout: 3
+  verticalSpaceBetweenButtons: 0.055
+  elevatorBrain: {fileID: 2773155557386863497, guid: 306437f9955df2140a8261dc7dd2c1a5, type: 3}
+  mainElevator: {fileID: 5840660292481433495, guid: ac4f6a86f43ebcc408fd48e8858ff2a4, type: 3}
+  hall: {fileID: 2941114336752253182, guid: 1a208d44ed2b7394a903bbcd43bbe252, type: 3}
+  entranceCase: {fileID: 777304536706777976, guid: d37452a9ca808ae45bc540b06737e231, type: 3}
+  innerCase: {fileID: 5885637166430067237, guid: d0f4c89c6e6ba5345b3abf39fea9cbb5, type: 3}
+  topCase: {fileID: 8583170981052057302, guid: 55009251efb113847a1900739b329a1c, type: 3}
+  bottomCase: {fileID: 597643563235766284, guid: 90f93a0fdd653fe479ed3c3b57de6f85, type: 3}
+  buttonAndNumber: {fileID: 7804419924316520909, guid: 6c94f7ef357b2a34ca35abee66903ebe, type: 3}
+  callerA: {fileID: 1077401236099591603, guid: 5beff5c18bafa2a4bb1919d8b50c7f77, type: 3}
+  callerB: {fileID: 2340878319586697745, guid: dcba00fe09eb2e04bb02ba59065671e0, type: 3}
+  externalDoors: {fileID: 6325549226279655994, guid: ca57fbd5e14ff184ab9b889cb10422d4, type: 3}
+  numberSprites:
+  - {fileID: 21300000, guid: 9fa4aba8f29dc6449a5f665574ab4587, type: 3}
+  - {fileID: 21300000, guid: 7e1083ca097c0be40ae8a38717e59835, type: 3}
+  - {fileID: 21300000, guid: 90a66ce71c811f045af4182731fd2dbe, type: 3}
+  - {fileID: 21300000, guid: 8618cf36064d71046b0cad6e6cf46b88, type: 3}
+  - {fileID: 21300000, guid: eafedf8fff690c942b7281ffd4994bc2, type: 3}
+  - {fileID: 21300000, guid: a033ab8f288f6fc499abbb925d631166, type: 3}
+  - {fileID: 21300000, guid: b87c8769bc0670e4abc1558fb0997d31, type: 3}
+  - {fileID: 21300000, guid: 49964973abec22245a9d1c1222251a3b, type: 3}
+  - {fileID: 21300000, guid: 48444441ea7248b4e9adc305939843af, type: 3}
+  - {fileID: 21300000, guid: 076d2b7f5b835d749af33b95b022b3e0, type: 3}
