@@ -11,6 +11,7 @@ TagManager:
   - Scavenger
   - LockedDoor
   - Keypad
+  - CorrectSide
   layers:
   - Default
   - TransparentFX

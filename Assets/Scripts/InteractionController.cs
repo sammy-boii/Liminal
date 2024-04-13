@@ -50,9 +50,15 @@ public class InteractionController : MonoBehaviour
     void toggleLever()
     {
         GameObject lever = hit.collider.gameObject;
-        Animator leverAnim = lever.GetComponentInChildren<Animator>();
+        Animator leverAnim = lever.GetComponent<Animator>();
         bool isOn = leverAnim.GetBool("isOn");
         leverAnim.SetBool("isOn", !isOn);
+
+        LeverController leverController = lever.GetComponent<LeverController>();
+        if (leverController != null)
+        {
+            leverController.swapActiveChild();
+        }
     }
 
     void Start()
