@@ -7,8 +7,11 @@ public class LeverController : MonoBehaviour
     public GameObject EuclideanSide;
     private int activeIndex;
 
+    [SerializeField] EuclideanPuzzle euclideanPuzzle;
+
     void Start()
     {
+
         for (int i = 0; i < EuclideanSide.transform.childCount; i++)
         {
             Transform child = EuclideanSide.transform.GetChild(i);
@@ -32,5 +35,11 @@ public class LeverController : MonoBehaviour
         activeIndex = subsequentChildIndex;
         Transform subsequentChild = EuclideanSide.transform.GetChild(subsequentChildIndex);
         subsequentChild.gameObject.SetActive(true);
+
+        if(euclideanPuzzle.checkSides())
+        {
+            gameObject.tag = "Untagged";
+            gameObject.layer = LayerMask.NameToLayer("Default");
+        }
     }
 }

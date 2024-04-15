@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BA_Glow_White_01
+  m_Name: GlowGreen
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -79,6 +79,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 2.1602714, g: 2.1602714, b: 2.1602714, a: 1}
+    - _Color: {r: 0, g: 0.990566, b: 0.18286026, a: 1}
+    - _EmissionColor: {r: 0.2589805, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
