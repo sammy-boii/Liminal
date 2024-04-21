@@ -5,28 +5,13 @@ using UnityEngine.AI;
 
 public class PlayerFollow : MonoBehaviour
 {
-
     public Transform player;
-    private NavMeshAgent agent;
-    public Animator animator;
+    public NavMeshAgent agent;
+    public Animator anim;
 
-    void Start()
+    public void Update()
     {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    void Update()
-    {
+        anim.SetTrigger("chase");
         agent.destination = player.position;
-        if (agent.remainingDistance <= agent.stoppingDistance )
-        {
-            animator.ResetTrigger("chase");
-            animator.SetTrigger("idle");
         }
-        else
-        {
-            animator.ResetTrigger("idle");
-            animator.SetTrigger("chase");
-        }
-    }
 }

@@ -12,7 +12,6 @@ public class Jumpscare : MonoBehaviour
 
     private void Update()
     {
-        // Check if the jumpscare animation has finished playing
         if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && !anim.IsInTransition(0))
         {
             character.SetActive(false);

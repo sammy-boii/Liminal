@@ -27,6 +27,7 @@ public class InteractionController : MonoBehaviour
 
     [SerializeField] ScavengerDialogue dialogue;
     [SerializeField] Keypad keypad;
+    [SerializeField] PlayerFollow playerFollow;
 
     void animateDoor()
     {
@@ -94,6 +95,13 @@ public class InteractionController : MonoBehaviour
                 {
                     animateDoor();
                     intText.SetActive(true);
+                }
+
+                if (hit.collider.CompareTag("TriggeredDoor"))
+                {
+                    animateDoor();
+                    intText.SetActive(true);
+                    playerFollow.enabled = true;
                 }
 
                 if (hit.collider.CompareTag("Lever"))

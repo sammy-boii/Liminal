@@ -12,6 +12,7 @@ TagManager:
   - LockedDoor
   - Keypad
   - CorrectSide
+  - TriggeredDoor
   layers:
   - Default
   - TransparentFX

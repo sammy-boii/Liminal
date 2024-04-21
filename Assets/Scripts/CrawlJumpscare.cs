@@ -19,15 +19,14 @@ public class CrawlJumpscare : MonoBehaviour
     {
         if (isAnimating)
         {
-            // Move the character forward
             character.transform.Translate(Vector3.forward * crawlSpeed * Time.deltaTime);
         }
 
         if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && !anim.IsInTransition(0))
         {
             character.SetActive(false);
-            character.transform.position = initialPosition; // Reset position
-            isAnimating = false; // Stop moving when animation ends
+            character.transform.position = initialPosition;
+            isAnimating = false; 
         }
     }
 
@@ -36,9 +35,9 @@ public class CrawlJumpscare : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             character.SetActive(true);
-            initialPosition = character.transform.position; // Store initial position
+            initialPosition = character.transform.position; 
             anim.SetTrigger("jumpscare");
-            isAnimating = true; // Start moving when triggered
+            isAnimating = true; 
         }
     }
 }
