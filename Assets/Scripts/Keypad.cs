@@ -18,7 +18,7 @@ public class Keypad : MonoBehaviour
     public TMP_Text text;
     public Image input;
 
-    public string code = "4713";
+    public string code;
 
     public void Number(int number)
     {

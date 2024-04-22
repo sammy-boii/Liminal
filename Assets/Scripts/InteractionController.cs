@@ -6,24 +6,28 @@ public class InteractionController : MonoBehaviour
 {
     public float interactionDistance;
 
-    // ui stuff
+    [Space(10)]
+    [Header("UI Elements ____________________________________________________________")]
+    [Space(5)]
 
     public GameObject intText;
     public GameObject lockedText;
     public GameObject keypadUI;
-
-    public LayerMask layerMask;
+    public Image crosshair;
 
     [SerializeField] private Color nonInteractableColor = new Color(1, 1, 1, .1f);
     [SerializeField] private Color interactableColor = Color.green;
 
-    public Image crosshair;
+    [Space(10)]
+    [Header("Raycast Settings ____________________________________________________________\"")]
+    [Space(10)]
 
+    public LayerMask layerMask;
     private RaycastHit hit;
 
-    public LayerMask layerMaskButtons;
-
-    // external scripts
+    [Space(10)]
+    [Header("External Scripts ____________________________________________________________\"")]
+    [Space(10)]
 
     [SerializeField] ScavengerDialogue dialogue;
     [SerializeField] Keypad keypad;
@@ -60,11 +64,6 @@ public class InteractionController : MonoBehaviour
         {
             leverController.swapActiveChild();
         }
-    }
-
-    void Start()
-    {
-        layerMask = LayerMask.GetMask("Interactable");
     }
 
     void Update()
@@ -132,7 +131,5 @@ public class InteractionController : MonoBehaviour
             intText.SetActive(false);
             crosshair.color = nonInteractableColor;
         }
-
-
     }
 }
