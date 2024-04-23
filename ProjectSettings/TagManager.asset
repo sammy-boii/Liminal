@@ -11,6 +11,7 @@ TagManager:
   - Keypad
   - CorrectSide
   - TriggeredDoor
+  - ElevatorButton
   layers:
   - Default
   - TransparentFX

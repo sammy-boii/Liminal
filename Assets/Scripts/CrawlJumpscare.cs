@@ -17,6 +17,10 @@ public class CrawlJumpscare : MonoBehaviour
 
     private void Update()
     {
+        if (!character.activeSelf) return;
+        {
+            
+        }
         if (isAnimating)
         {
             character.transform.Translate(Vector3.forward * crawlSpeed * Time.deltaTime);

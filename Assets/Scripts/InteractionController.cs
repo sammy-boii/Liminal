@@ -1,10 +1,8 @@
-using OldElevator;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InteractionController : MonoBehaviour
 {
-    public float interactionDistance;
 
     [Space(10)]
     [Header("UI Elements ____________________________________________________________")]
@@ -13,8 +11,12 @@ public class InteractionController : MonoBehaviour
     public GameObject intText;
     public GameObject lockedText;
     public GameObject keypadUI;
-    public Image crosshair;
 
+    [Space(10)]
+    [Header("Crosshair ____________________________________________________________")]
+    [Space(5)]
+
+    public Image crosshair;
     [SerializeField] private Color nonInteractableColor = new Color(1, 1, 1, .1f);
     [SerializeField] private Color interactableColor = Color.green;
 
@@ -23,6 +25,7 @@ public class InteractionController : MonoBehaviour
     [Space(10)]
 
     public LayerMask layerMask;
+    public float interactionDistance;
     private RaycastHit hit;
 
     [Space(10)]
@@ -64,6 +67,18 @@ public class InteractionController : MonoBehaviour
         {
             leverController.swapActiveChild();
         }
+    }
+
+    void animateExteriorDoor()
+    {
+        ExteriorDoor exteriorDoor = hit.collider.gameObject.GetComponent<ExteriorDoor>();
+        exteriorDoor.Interact();
+    }
+
+    void animateInteriorDoor()
+    {
+        InteriorDoor interiorDoor = hit.collider.gameObject.GetComponent<InteriorDoor>();
+        interiorDoor.Interact();
     }
 
     void Update()
@@ -113,13 +128,28 @@ public class InteractionController : MonoBehaviour
                     keypadUI.SetActive(true);
                 }
 
-                if (hit.collider.transform.TryGetComponent(out ElevatorButton btn))
+                // elevator section
+
+                if (hit.collider.TryGetComponent(out ExteriorDoor _))
                 {
-                    btn.Press();
+                    animateExteriorDoor();
+                    intText.SetActive(true);
                 }
-                if (hit.collider.transform.TryGetComponent(out DoorTrigger door))
+
+                if (hit.collider.TryGetComponent(out InteriorDoor _))
                 {
-                    door.Toggle();
+                    animateInteriorDoor();
+                    intText.SetActive(true);
+                }
+
+                if (hit.collider.TryGetComponent(out ElevatorButton elevatorBtn))
+                {
+                    elevatorBtn.Press();
+                }
+
+                if (hit.collider.TryGetComponent(out LightSwitch light))
+                {
+                    light.Toggle();
                 }
 
             }
