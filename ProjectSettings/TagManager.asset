@@ -6,8 +6,6 @@ TagManager:
   tags:
   - Door
   - Lever
-  - Down Button
-  - Up Button
   - Scavenger
   - LockedDoor
   - Keypad
