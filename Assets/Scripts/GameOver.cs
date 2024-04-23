@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    private void Awake()
+    {
+        GameObject jumpscareRoom = GameObject.Find("Animated JumpScare Container");
+        if (!jumpscareRoom) return;
+         jumpscareRoom.SetActive(false);
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene("Main Scene");
