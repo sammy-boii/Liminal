@@ -27,22 +27,16 @@ public class PlayerFollow : MonoBehaviour
     public GameObject keypadUI;
     public GameObject gameOverUI;
 
-    private GameObject jumpscareRoom;
+    public AudioSource chaseMusic;
+
+    public GameObject jumpscareRoom;
     private bool isUI = false;
 
     private void Awake()
     {
-        jumpscareRoom = GameObject.Find("Animated JumpScare Container");
         jumpscareRoom.SetActive(false);
     }
 
-    private void Start()
-    {
-        if (jumpscareCam)
-        {
-            jumpscareCam.gameObject.SetActive(false);
-        }
-    }
 
     void Update()
     {
@@ -53,7 +47,7 @@ public class PlayerFollow : MonoBehaviour
             jumpscareRoom.SetActive(true);
             keypadUI.SetActive(false);
             playerCam.gameObject.SetActive(false);
-            jumpscareCam.gameObject.SetActive(true);
+            chaseMusic.Stop();
             if (!isUI)
             {
                 Invoke("GameOverUI", 3f);

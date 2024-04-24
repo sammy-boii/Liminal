@@ -9,15 +9,18 @@ public class VictoryTrigger : MonoBehaviour
     public GameObject player;
     public Camera playerCam;
 
-    private GameObject victoryRoom;
+    public GameObject victoryRoom;
+
+    public AudioSource chaseMusic;
+
     private void Awake()
     {
-        victoryRoom = GameObject.Find("Animated Victory Container");
         victoryRoom.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        chaseMusic.Stop();
         victoryRoom.SetActive(true);
         DisableControls();
         playerCam.gameObject.SetActive(false);
