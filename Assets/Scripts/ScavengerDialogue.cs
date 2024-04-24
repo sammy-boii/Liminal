@@ -9,12 +9,15 @@ public class ScavengerDialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
 
+    private AudioSource clip;
+
     private int index;
     private bool isDialogueActive = false;
 
     void Start()
     {
         textComponent.text = string.Empty;
+        clip = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -43,11 +46,15 @@ public class ScavengerDialogue : MonoBehaviour
             yield break;
         }
 
+        clip.Play();
+
         for (int i = 0; i < lines[index].Length; i++)
         {
             textComponent.text += lines[index][i];
             yield return new WaitForSeconds(textSpeed);
         }
+
+        clip.Stop();
     }
 
 

@@ -20,8 +20,13 @@ public class Keypad : MonoBehaviour
 
     public string code;
 
+    public AudioSource click;
+    public AudioSource correctAudio;
+    public AudioSource incorrectAudio;
+
     public void Number(int number)
     {
+        click.Play();
         text.text += number.ToString();
 
     }
@@ -34,15 +39,16 @@ public class Keypad : MonoBehaviour
             input.color = Color.green;
             text.fontSize = 12;
             text.text = "Access Granted";
-            Invoke("Exit", 1.3f);
+            correctAudio.Play();
+            Invoke("Exit", 0.7f);
         }
         else
         {
             input.color = Color.red;
             text.fontSize = 12;
             text.text = "Access Denied";
+            incorrectAudio.Play();
         }
-
         Invoke("Clear", 1f);
     }
 

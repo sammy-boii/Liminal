@@ -10,7 +10,12 @@ public class ElevatorController : MonoBehaviour
 
     public CameraShake cameraShake;
 
-    public bool isMoving = false; 
+    public InteriorDoor interiorDoor;
+
+    public bool isMoving = false;
+
+    public AudioSource stopClip;
+    public AudioSource moveClip;
 
     void Start()
     {
@@ -19,7 +24,15 @@ public class ElevatorController : MonoBehaviour
 
     public void MoveToFloor(Transform floor)
     {
+        if (elevator.transform.position == floor.position)
+        {
+            return;
+        }
+
+        interiorDoor.Close();
+
         isMoving = true;
+        moveClip.Play();
         StartCoroutine(MoveElevatorCoroutine(floor.position));
     }
 
@@ -46,9 +59,18 @@ public class ElevatorController : MonoBehaviour
         }
 
         isMoving = false;
-        StartCoroutine(cameraShake.Shake(.4f, .01f));
+        moveClip.Stop();
+        stopClip.Play();
+        StartCoroutine(cameraShake.Shake(.45f, .008f));
+
+        Invoke("OpenDoor", 0.5f);
 
         elevator.transform.position = targetPosition;
         moveSpeed = initialMoveSpeed; 
+    }
+
+    void OpenDoor()
+    {
+        interiorDoor.Open();
     }
 }

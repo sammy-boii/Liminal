@@ -5,9 +5,10 @@ public class InteriorDoor : MonoBehaviour
     [SerializeField] Animator doorLeftAnim;
     [SerializeField] Animator doorRightAnim;
 
-    public ElevatorController elevator;
-
     public bool isOpen = false;
+
+    public AudioSource doorOpen;
+    public AudioSource doorClose;
 
     public void Interact()
     {
@@ -23,16 +24,31 @@ public class InteriorDoor : MonoBehaviour
 
     public void Open()
     {
-        if (elevator.isMoving) return;
+        if (isOpen)
+        {
+            return;
+        }
+
         doorLeftAnim.SetTrigger("open");
         doorRightAnim.SetTrigger("open");
+
+        doorOpen.Play();
+
         isOpen = true;
     }
 
     public void Close()
     {
+        if (!isOpen)
+        {
+            return;
+        }
+
         doorLeftAnim.SetTrigger("close");
         doorRightAnim.SetTrigger("close");
+
+        doorClose.Play();
+
         isOpen = false;
     }
 }

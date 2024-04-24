@@ -10,6 +10,8 @@ public class HallwayTrigger : MonoBehaviour
     private Rigidbody rb1;
     private Rigidbody rb2;
 
+    public AudioSource rock;
+
     void Start()
     {
         rb1 = debris1.GetComponent<Rigidbody>();
@@ -22,6 +24,8 @@ public class HallwayTrigger : MonoBehaviour
         {
             rb1.useGravity = true;
             rb2.useGravity = true;
+
+            rock.Play();
         }
     }
 }

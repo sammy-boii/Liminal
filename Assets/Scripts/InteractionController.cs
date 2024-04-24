@@ -29,12 +29,25 @@ public class InteractionController : MonoBehaviour
     private RaycastHit hit;
 
     [Space(10)]
+    [Header("Sounds ____________________________________________________________\"")]
+    [Space(10)]
+
+    public AudioSource doorOpen;
+    public AudioSource doorClose;
+    public AudioSource lockedDoorClip;
+    public AudioSource leverClip;
+    public AudioSource bells;
+    public AudioSource stab;
+    public AudioSource chaseMusic;
+
+    [Space(10)]
     [Header("External Scripts ____________________________________________________________\"")]
     [Space(10)]
 
     [SerializeField] ScavengerDialogue dialogue;
     [SerializeField] Keypad keypad;
     [SerializeField] PlayerFollow playerFollow;
+    [SerializeField] EuclideanPuzzle puzzle;
 
     void animateDoor()
     {
@@ -42,6 +55,14 @@ public class InteractionController : MonoBehaviour
             Animator doorAnim = doorHinge.GetComponent<Animator>();
             bool isOpen = doorAnim.GetBool("isOpen");
             doorAnim.SetBool("isOpen", !isOpen);
+        if (!doorAnim.GetBool("isOpen"))
+        {
+            doorClose.Play();
+        }
+        else
+        {
+            doorOpen.Play();
+        }
     }
 
     void handleLockedDoor()
@@ -62,28 +83,22 @@ public class InteractionController : MonoBehaviour
         bool isOn = leverAnim.GetBool("isOn");
         leverAnim.SetBool("isOn", !isOn);
 
+        leverClip.Play();
+
         LeverController leverController = lever.GetComponent<LeverController>();
         if (leverController != null)
         {
             leverController.swapActiveChild();
         }
     }
-
     void animateExteriorDoor()
     {
         ExteriorDoor exteriorDoor = hit.collider.gameObject.GetComponent<ExteriorDoor>();
         exteriorDoor.Interact();
     }
 
-    void animateInteriorDoor()
-    {
-        InteriorDoor interiorDoor = hit.collider.gameObject.GetComponent<InteriorDoor>();
-        interiorDoor.Interact();
-    }
-
     void Update()
     {
-
         Ray ray = new Ray(transform.position, transform.forward);
 
             if (Physics.Raycast(ray, out hit, interactionDistance, layerMask))
@@ -105,18 +120,25 @@ public class InteractionController : MonoBehaviour
                     dialogue.StartDialogue();
                 }
 
+                if (hit.collider.CompareTag("LockedDoor"))
+                {
+                    lockedDoorClip.Play();
+                }
+
                 if (hit.collider.CompareTag("Door"))
                 {
                     animateDoor();
-                    intText.SetActive(true);
                 }
 
                 if (hit.collider.CompareTag("TriggeredDoor"))
                 {
                     animateDoor();
-                    intText.SetActive(true);
+                    stab.Stop();
+                    chaseMusic.Play();
                     playerFollow.enabled = true;
                 }
+
+                // puzzle section
 
                 if (hit.collider.CompareTag("Lever"))
                 {
@@ -128,28 +150,21 @@ public class InteractionController : MonoBehaviour
                     keypadUI.SetActive(true);
                 }
 
+                if (puzzle.checkSides())
+                {
+                    bells.Play();
+                }
+
                 // elevator section
 
                 if (hit.collider.TryGetComponent(out ExteriorDoor _))
                 {
                     animateExteriorDoor();
-                    intText.SetActive(true);
-                }
-
-                if (hit.collider.TryGetComponent(out InteriorDoor _))
-                {
-                    animateInteriorDoor();
-                    intText.SetActive(true);
                 }
 
                 if (hit.collider.TryGetComponent(out ElevatorButton elevatorBtn))
                 {
                     elevatorBtn.Press();
-                }
-
-                if (hit.collider.TryGetComponent(out LightSwitch light))
-                {
-                    light.Toggle();
                 }
 
             }

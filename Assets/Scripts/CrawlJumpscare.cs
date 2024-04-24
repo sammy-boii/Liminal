@@ -5,7 +5,9 @@ public class CrawlJumpscare : MonoBehaviour
 {
     public Animator anim;
     public GameObject character;
-    public float crawlSpeed = 1.0f;
+    public float crawlSpeed = 6.0f;
+
+    public AudioSource jumpscare;
 
     private bool isAnimating = false;
     private Vector3 initialPosition;
@@ -38,6 +40,7 @@ public class CrawlJumpscare : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            jumpscare.Play();
             character.SetActive(true);
             initialPosition = character.transform.position; 
             anim.SetTrigger("jumpscare");
