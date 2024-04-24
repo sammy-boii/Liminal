@@ -22,7 +22,7 @@ public class ScavengerDialogue : MonoBehaviour
 
     void Update()
     {
-        if (isDialogueActive && Input.GetMouseButtonDown(0) && textComponent.text == lines[index])
+        if (isDialogueActive && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && textComponent.text == lines[index])
         {
             NextLine();
         }

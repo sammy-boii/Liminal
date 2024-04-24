@@ -13,6 +13,8 @@ public class VictoryTrigger : MonoBehaviour
 
     public AudioSource chaseMusic;
 
+    public GameObject enemy;
+
     private void Awake()
     {
         victoryRoom.SetActive(false);
@@ -21,6 +23,7 @@ public class VictoryTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         chaseMusic.Stop();
+        enemy.SetActive(false);
         victoryRoom.SetActive(true);
         DisableControls();
         playerCam.gameObject.SetActive(false);
