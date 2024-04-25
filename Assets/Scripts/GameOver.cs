@@ -13,9 +13,9 @@ public class GameOver : MonoBehaviour
         public void Quit()
         {
             // for prod
-            UnityEditor.EditorApplication.isPlaying = false;
+            // UnityEditor.EditorApplication.isPlaying = false;
 
             // for standalone built ver
-            // Application.Quit();
+            Application.Quit();
         }
 }

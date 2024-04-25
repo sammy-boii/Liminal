@@ -20,6 +20,7 @@ public class EuclideanPuzzle : MonoBehaviour
 
     public List<GameObject> correctSides;
     public GameObject eyes;
+    public AudioSource bells;
 
     private bool isSolved;
 
@@ -66,7 +67,14 @@ public class EuclideanPuzzle : MonoBehaviour
             }
 
             eyes.SetActive(true);
+            bells.Play();
+            Invoke("StopBells", 25f);
         }
         return isSolved;
+    }
+
+    void StopBells()
+    {
+        bells.Stop();
     }
 }

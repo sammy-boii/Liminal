@@ -36,7 +36,6 @@ public class InteractionController : MonoBehaviour
     public AudioSource doorClose;
     public AudioSource lockedDoorClip;
     public AudioSource leverClip;
-    public AudioSource bells;
     public AudioSource stab;
     public AudioSource chaseMusic;
 
@@ -149,12 +148,6 @@ public class InteractionController : MonoBehaviour
                 {
                     keypadUI.SetActive(true);
                 }
-
-                if (puzzle.checkSides())
-                {
-                    bells.Play();
-                }
-
                 // elevator section
 
                 if (hit.collider.TryGetComponent(out ExteriorDoor _))
