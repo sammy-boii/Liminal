@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2773155557386863497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2773155557386863499}
+  - component: {fileID: 2773155557386863496}
+  m_Layer: 0
+  m_Name: Elevator Brain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2773155557386863499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773155557386863497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2773155557386863496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773155557386863497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a2895ffdc1e794abe5c3a3cec43e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitsPerSecond: 1.5
+  slowDownNearArriving: 1
+  slowingDownEffect: 0.028
+  initialStop: {fileID: 0}
+  destination: {x: 0, y: 0, z: 0}
+  outterDoors: []
+  innerDoors: []
+  avoidBouncing: 1
+  player: {fileID: 0}
+  distToFloor: 1
+  outterDoorsMustBeFullyClosed: 1
+  innerDoorsMustBeFullyClosed: 1
+  lockOutterDoorsInOtherFloors: 1
+  emergencyStopIfInnerDoorsOpen: 1
+  resumeTravelAfterDoorsClose: 1
+  lightFlickering: 1
+  elevatorShaking: 1
+  shakeWhenTravelBegins: 1
+  shakeWhenTravelEnds: 0.5
+  shakeOnEmergencyStop: 1.2
+  elevator: {fileID: 0}
+  elevatorLightsContainer: {fileID: 0}
+  elevatorLightSwitchScript: {fileID: 0}
+  isMovingLight: {fileID: 2100000, guid: f88e675870c22a04783fbfa6d3f56ebf, type: 2}
+  movingUpLight: {fileID: 2100000, guid: 81873a904c11db243a16f27ac7a09073, type: 2}
+  movingDownLight: {fileID: 2100000, guid: b95fa4c79a1523d48a3673f921921aac, type: 2}
+  movingLightColor: {r: 0.25490198, g: 1, b: 0, a: 1}
+  emergencyStopLight: {fileID: 2100000, guid: b7aca2f1d6708104d91e119e70c2741b, type: 2}
+  emergencyStopColor: {r: 1, g: 0, b: 0, a: 0}
+  callerLightsIntensity: 1
+  travelSound: {fileID: 0}
+  stopSound: {fileID: 0}
+  emergencyStopSound: {fileID: 0}
+  doorUnlockedSound: {fileID: 0}
+  breaksSound: {fileID: 0}
+  flickeringSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  moving: 0
